@@ -11,10 +11,12 @@ int main()
 	Data num = 0;
 
 	list_Init();
-	list_Push((Data)10);
-	list_Push((Data)20);
-	list_Push((Data)30);
-	list_Push((Data)40);
+	list_Push_Reverse(1);
+	list_Push_Reverse(2);
+	list_Push_Reverse(3);
+	list_Push_Reverse(4);
+	list_Push_Reverse(5);
+	list_Push_Reverse(6);
 
 	list_Delete();
 

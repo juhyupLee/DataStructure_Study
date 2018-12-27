@@ -12,4 +12,5 @@ bool list_Init();
 void list_Push(Data data);
 bool list_Delete(void);
 bool list_Seek(Node* pNode, Data data);
+void list_Push_Reverse(Data data);
 

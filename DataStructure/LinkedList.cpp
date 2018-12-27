@@ -36,6 +36,26 @@ void list_Push(Data data)
 
 }
 
+void list_Push_Reverse(Data data)
+{
+	Node* pNode = new Node;// Node생성
+	pNode->data = data;// 데이터 집어넣기
+
+	if (Head == nullptr)//Node가 아무것도없으면
+	{
+		Head = pNode;
+		Tail = pNode;
+		Tail->pNext = nullptr;
+	}
+	else
+	{
+		pNode->pNext = Head;
+		Head = pNode;
+	}
+	
+
+}
+
 
 bool list_Delete(void)
 {
