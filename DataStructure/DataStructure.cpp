@@ -6,18 +6,28 @@
 #include "LinkedList.h"
 #include "Extern.h"
 
+using namespace std;
+
 int main()
 {
-	Data num = 0;
 
-	list_Init();
-	list_Push_Reverse(1);
-	list_Push_Reverse(2);
-	list_Push_Reverse(3);
-	list_Push_Reverse(4);
-	list_Push_Reverse(5);
-	list_Push_Reverse(6);
+	int i = 1000000000000000;
 
-	list_Delete();
+	cout << "hell" << endl;
+
+
+	//list_Init();
+	//list_Push_Reverse(1);
+	//list_Push_Reverse(2);
+	//list_Push_Reverse(3);
+	//list_Push_Reverse(4);
+	//list_Push_Reverse(5);
+	//list_Push_Reverse(6);
+
+	//list_Delete();
+
+
+
+	
 
 }

@@ -1,16 +1,33 @@
 #include "pch.h"
 #include "DLinkedList.h"
-
+#include <stdlib.h>
 void ListInit(List * plist)
 {
+	plist->head = (Node*)malloc(sizeof(Node));
+	plist->head->next = nullptr;
+	plist->comp = nullptr;
+	plist->numofData = 0;
+
 }
 
 void LInsert(List * plist, LData data)
 {
+	Node* newNode = (Node*)malloc(sizeof(Node));
+	newNode->data = data;
+
+	newNode->next = plist->head->next;
+	plist->head->next = newNode;
+
+	(plist->numofData)++;
+
 }
 
 int LFirst(List * plist, LData * pdata)
 {
+	if (plist->head->next = nullptr)
+	{
+		return false;
+	}
 	return 0;
 }
 

@@ -1,1 +1,4 @@
-﻿  DataStructure.vcxproj -> C:\SideProject\DataStructure\Debug\DataStructure.exe
+﻿  DataStructure.cpp
+c:\sideproject\datastructure\datastructure\datastructure.cpp(14): warning C4305: '초기화 중': '__int64'에서 'int'(으)로 잘립니다.
+c:\sideproject\datastructure\datastructure\datastructure.cpp(14): warning C4309: '초기화 중': 상수 값이 잘립니다.
+  DataStructure.vcxproj -> C:\SideProject\DataStructure\Debug\DataStructure.exe
