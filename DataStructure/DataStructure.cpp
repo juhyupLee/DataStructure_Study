@@ -3,29 +3,58 @@
 
 #include "pch.h"
 #include <iostream>
-#include "LinkedList.h"
 #include "Extern.h"
-
+#include "ArrayList.h"
 using namespace std;
 
 int main()
 {
 
-	int i = 1000000000000000;
+	List list;
+	int data;
+	ListInit(&list);
 
-	cout << "hell" << endl;
+	LInsert(&list, 11); LInsert(&list, 11);
+	LInsert(&list, 22); LInsert(&list, 22);
+	LInsert(&list, 33);
+
+	cout << "현재 데이터의 갯수:" << LCount(&list) << endl;
+	
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
+
+		while (LNext(&list, &data))
+			printf("%d ", data);
+
+	}
+	if (LFirst(&list, &data))
+	{
+		if (data %2== 0)
+		{
+			LRemove(&list);
+
+		}
+		while (LNext(&list, &data))
+		{
+			if (data % 2 == 0)
+			{
+				LRemove(&list);
+			}
+		}
+	}
+	cout << "현재 남아있는 데이터의수:" << LCount(&list) << endl;
 
 
-	//list_Init();
-	//list_Push_Reverse(1);
-	//list_Push_Reverse(2);
-	//list_Push_Reverse(3);
-	//list_Push_Reverse(4);
-	//list_Push_Reverse(5);
-	//list_Push_Reverse(6);
+	if (LFirst(&list, &data))
+	{
+		printf("%d ", data);
 
-	//list_Delete();
+		while (LNext(&list, &data))
+			printf("%d ", data);
 
+	}
+	
 
 
 	
