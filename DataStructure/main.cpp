@@ -10,56 +10,51 @@ using namespace std;
 
 int main()
 {
-	CList CList;
-	ListInit2
-	//List list;
-	//LData Data = 0;
+	
+	CList list;
+	Data Data = 0;
 
-	//ListInit(&list);
-	//
-	//SetSortRule(&list,Compare);
+	ListInit(&list);
+	LInsert(&list,	1);
+	LInsert(&list,  2);
+	LInsert(&list,  3);
+	LInsert(&list, 4);
 
+	if (LFirst(&list, &Data))
+	{
+		cout << Data << endl;
 
-	//	SInsert(&list, (LData)1);
-	//	SInsert(&list, (LData)3);
-	//	SInsert(&list, (LData)5);
-	//	SInsert(&list, (LData)2);
-	//	SInsert(&list, (LData)4);
+		while (LNext(&list, &Data))
+		{
+			cout << Data << endl;
+		}
+	}
+		
 
-	//if (LFirst(&list, &Data))
-	//{
-	//	cout << Data << " ";
+	cout << endl;
+	if (LFirst(&list, &Data))
+	{
+		if (Data % 2 == 0)
+		{
+			LRemove(&list);
+		}
+		while (LNext(&list, &Data))
+		{
+			if (Data % 2 == 0)
+			{
+				LRemove(&list);
+			}
+		}
 
-	//}
-	//while (LNext(&list, &Data))
-	//{
-	//	cout << Data << " ";
-	//}
+	}
+	if (LFirst(&list, &Data))
+	{
+		cout << Data << " ";
 
-	//cout << endl;
-	////if (LFirst(&list, &Data))
-	////{
-	////	if (Data % 2 == 1)
-	////	{
-	////		LRemove(&list);
-	////	}
-	////	while (LNext(&list, &Data))
-	////	{
-	////		if (Data % 2 == 1)
-	////		{
-	////			LRemove(&list);
-	////		}
-	////	}
-
-	////}
-	////if (LFirst(&list, &Data))
-	////{
-	////	cout << Data << " ";
-
-	////}
-	////while (LNext(&list, &Data))
-	////{
-	////	cout << Data << " ";
-	////}
+	}
+	while (LNext(&list, &Data))
+	{
+		cout << Data << " ";
+	}
 
 }

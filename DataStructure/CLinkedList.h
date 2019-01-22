@@ -20,17 +20,16 @@ typedef struct _CLL
 
 }CList;
 
-typedef CList List;
 
-void ListInit2(List* plist);
-//void LInsert(List* plist, Data data);
-//void LInsertFront(List* plist, Data data);
-//
-//int CLFirst(List* plist, Data* pData);
-//int CLNext(List* plist, Data* pData);
-//Data LRemove(List* plist);
-//int CLCount(List* plist);
-//
+void ListInit(CList* plist);
+void LInsert(CList* plist, Data data);
+void LInsertFront(CList* plist, Data data);
+
+int LFirst(CList* plist, Data* pData);
+int LNext(CList* plist, Data* pData);
+Data LRemove(CList* plist);
+int LCount(CList* plist);
+
 
 
 

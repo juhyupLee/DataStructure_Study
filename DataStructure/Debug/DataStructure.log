@@ -1,5 +1,2 @@
-﻿  CLinkedList.cpp
-  main.cpp
-c:\side project\data structure\datastructure\main.cpp(13): warning C4101: 'CList': unreferenced local variable
-  Generating Code...
+﻿  main.cpp
   DataStructure.vcxproj -> C:\Side Project\Data Structure\Debug\DataStructure.exe
