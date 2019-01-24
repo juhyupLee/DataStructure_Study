@@ -1,7 +1,5 @@
-#include "pch.h"
+
 #include "CLinkedList.h"
-
-
 	void ListInit(CList * plist)
 	{
 		plist->before = nullptr;

@@ -1,4 +1,4 @@
-#include "pch.h"
+
 #include "DLinkedList.h"
 #include <stdlib.h>
 

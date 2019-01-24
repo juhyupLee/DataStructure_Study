@@ -1,6 +1,6 @@
-#include "pch.h"
-#include "ArrayList.h"
-#include "DLinkedList.h"
+//#include "pch.h"
+//#include "ArrayList.h"
+//#include "DLinkedList.h"
 
 //void ListInit(List * plist)
 //{
