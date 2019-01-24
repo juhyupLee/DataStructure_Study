@@ -154,11 +154,13 @@
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="CLinkedList.h" />
     <ClInclude Include="DLinkedList.h" />
+    <ClInclude Include="DoubledLinkedList2.h" />
     <ClInclude Include="DoubleLinkedList.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="CLinkedList.cpp" />
+    <ClCompile Include="DoubledLinkedList2.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DLinkedList.cpp" />
