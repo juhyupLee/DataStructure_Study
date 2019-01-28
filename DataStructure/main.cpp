@@ -6,65 +6,30 @@
 //#include "DLinkedList.h"
 //#include "CLinkedList.h"
 //#include "DoubleLinkedList.h"
-#include "DoubledLinkedList2.h"
-
+//#include "DoubledLinkedList2.h"
+#include "ArrayStack.h"
 using namespace std;
 
 int main()
 {
 	//Test Source Tree Test
-	DBList2 list;                    
-	Data Data = 0;
+	ArrayStack Stack;
+	Data data = 0;
 
-	ListInit(&list);
-	LInsert(&list,	1);
-	LInsert(&list,  2);
-	LInsert(&list,  3);
-	LInsert(&list, 4);
-
-	cout << "총리스트" << endl;
-	if (LFirst(&list, &Data))
+	StackInit(&Stack);
+	Push(&Stack, 10);
+	Push(&Stack, 20);
+	Push(&Stack, 30);
+	Push(&Stack, 40);
+	Push(&Stack, 50);
+	
+	while (Peep(&Stack)>0)
 	{
-		cout << Data << endl;
+		cout << Pop(&Stack) << endl;;
 
-		while (LNext(&list, &Data))
-		{
-			cout << Data << endl;
-		}
-		while (LPrevious(&list, &Data))
-		{
-			cout << Data << endl;
-		}
 	}
 
 	
-	if (LFirst(&list, &Data))
-	{
-		if (1 == Data % 2)
-		{
-			LRemove(&list);
-		}
-		while (LNext(&list, &Data))
-		{
-			if (1 == Data % 2)
-			{
-				LRemove(&list);
-			}
-		}
-	}
-
-	cout << "삭제 후리스트 " << endl;
-	if (LFirst(&list, &Data))
-	{
-		cout << Data << endl;
-
-		while (LNext(&list, &Data))
-		{
-			cout << Data << endl;
-		}
-
-	}
-
 
 		
 }
