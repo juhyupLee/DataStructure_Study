@@ -34,11 +34,6 @@ Data Pop(ArrayStack * pStack)
 }
 
 Data Peep(ArrayStack * pStack)
-{
-	if (pStack->StackPointer < 0)
-		return -1;
-	else
-		return pStack->StackArray[pStack->StackPointer];
-
-
+{	
+	return pStack->StackArray[pStack->StackPointer];
 }
