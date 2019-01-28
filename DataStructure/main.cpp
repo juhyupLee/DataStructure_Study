@@ -8,13 +8,14 @@
 //#include "DoubleLinkedList.h"
 //#include "DoubledLinkedList2.h"
 //#include "ArrayStack.h"
-#include "LinkedStack.h"
+//#include "LinkedStack.h"
+#include "CLinkedList Apply Stack.h"
 using namespace std;
 
 int main()
 {
 	//Test Source Tree Test
-	LinkedStack Stack;
+	CList Stack;
 	Data data = 0;
 
 	StackInit(&Stack);
@@ -24,7 +25,7 @@ int main()
 	Push(&Stack, 40);
 	Push(&Stack, 50);
 	
-	while (Peep(&Stack)!=-1)
+	while (IsEmpty(&Stack))
 	{
 		cout << Pop(&Stack) << endl;;
 	}
