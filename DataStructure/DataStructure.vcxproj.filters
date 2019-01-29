@@ -21,9 +21,6 @@
     <ClInclude Include="ArrayList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="CLinkedList.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="DoubleLinkedList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
     <ClInclude Include="CLinkedList Apply Stack.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CLinkedList_Solution.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DLinkedList.cpp">
@@ -48,9 +48,6 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="CLinkedList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="DoubleLinkedList.cpp">
@@ -66,6 +63,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="CLinkedList Apply Stack.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="CLinkedList_Solutuion.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

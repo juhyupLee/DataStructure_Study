@@ -154,7 +154,7 @@
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="CLinkedList Apply Stack.h" />
-    <ClInclude Include="CLinkedList.h" />
+    <ClInclude Include="CLinkedList_Solution.h" />
     <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="DoubledLinkedList2.h" />
     <ClInclude Include="DoubleLinkedList.h" />
@@ -164,7 +164,7 @@
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="CLinkedList Apply Stack.cpp" />
-    <ClCompile Include="CLinkedList.cpp" />
+    <ClCompile Include="CLinkedList_Solutuion.cpp" />
     <ClCompile Include="DoubledLinkedList2.cpp" />
     <ClCompile Include="DoubleLinkedList.cpp" />
     <ClCompile Include="LinkedStack.cpp" />

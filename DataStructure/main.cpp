@@ -15,7 +15,7 @@ using namespace std;
 int main()
 {
 	//Test Source Tree Test
-	CList Stack;
+	CList_Sol Stack;
 	Data data = 0;
 
 	StackInit(&Stack);

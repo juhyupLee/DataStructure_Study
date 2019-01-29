@@ -1,28 +1,26 @@
 #include "CLinkedList Apply Stack.h"
 
-void StackInit(CList * plist)
+void StackInit(CList_Sol * plist)
 {
 	ListInit(plist);
 
 }
 
-void Push(CList * plist, Data data)
+void Push(CList_Sol * plist, Data data)
 {
-	plist->before = plist->tail;
-	LInsert(plist, data);
-
+	LInsertFront(plist, data);
 }
 
-Data Pop(CList * plist)
+Data Pop(CList_Sol * plist)
 {
 	
-	plist->cur = plist->tail;
-	//plist->before  = 
+	plist->before = plist->tail;
+	plist->cur = plist->tail->next;
 	return LRemove(plist);
 
 }
 
-int IsEmpty(CList * plist)
+int IsEmpty(CList_Sol * plist)
 {
 	if (nullptr == plist->tail)
 		return FALSE;
@@ -30,7 +28,7 @@ int IsEmpty(CList * plist)
 		return TRUE;
 }
 
-Data Peek(CList * plist)
+Data Peek(CList_Sol * plist)
 {
 	if (nullptr == plist->tail)
 	{
