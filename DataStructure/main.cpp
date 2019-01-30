@@ -8,27 +8,132 @@
 //#include "DoubleLinkedList.h"
 //#include "DoubledLinkedList2.h"
 //#include "ArrayStack.h"
-//#include "LinkedStack.h"
-#include "CLinkedList Apply Stack.h"
+#include "LinkedStack.h"
+//#include "CLinkedList Apply Stack.h"
 using namespace std;
-
+#define SIZE 100
 int main()
 {
-	//Test Source Tree Test
-	CList_Sol Stack;
-	Data data = 0;
 
-	StackInit(&Stack);
-	Push(&Stack, 10);
-	Push(&Stack, 20);
-	Push(&Stack, 30);
-	Push(&Stack, 40);
-	Push(&Stack, 50);
+
+	char Input[] = "(1+2*3)/4*8*2*10";
+	char Postfix[SIZE] = "";
+	LinkedStack OperStack;
+
+	StackInit(&OperStack);
+	int Oper1 = 0;
+	int Oper2 = 0;
+	int CurIndex = 0;
+
+	int InputSize = sizeof(Input) / sizeof(char);
 	
-	while (IsEmpty(&Stack))
+	for (int i = 0;i < InputSize;++i)
 	{
-		cout << Pop(&Stack) << endl;;
+		if ('(' == Input[i])
+			Oper1 = i;
+		if (')' == Input[i])
+			Oper2 = i;
 	}
 
+	if (Oper1+Oper2 == 0)
+	{
+
+	}
+	else
+	{
+		int PostfixInx = 0;
+		for (CurIndex = Oper1 + 1;CurIndex <= Oper2; ++CurIndex)
+		{
+			if (48 <= Input[CurIndex] && Input[CurIndex] <= 57)//숫자일때
+			{
+				Postfix[PostfixInx] = Input[CurIndex];
+				++PostfixInx;
+			}
+			else//연산자일때
+			{
+				if (1==IsEmpty(&OperStack))
+				{
+					Push(&OperStack, Input[CurIndex]);
+				}
+				else
+				{
+					if (Peep(&OperStack) == '*' || Peep(&OperStack) == '/')
+					{
+						if (Input[CurIndex] == '+' || Input[CurIndex] == '-')
+						{
+							while (0==IsEmpty(&OperStack))
+							{
+								Postfix[PostfixInx] = Pop(&OperStack);
+								++PostfixInx;
+							}
+							Push(&OperStack, Input[CurIndex]);
+						}
+					}
+					else
+					{
+						Push(&OperStack, Input[CurIndex]);
+
+					}
+				}
+			}
+
+		}
+		while (0==IsEmpty(&OperStack))
+		{
+			Postfix[PostfixInx] = Pop(&OperStack);
+			++PostfixInx;
+		}
+
+		//대괄호 연산 종료후
+		for (CurIndex = Oper2 + 1; CurIndex < InputSize-1; CurIndex++)
+		{
+			if (48 <= Input[CurIndex] && Input[CurIndex] <= 57)//숫자일때
+			{
+				Postfix[PostfixInx] = Input[CurIndex];
+				++PostfixInx;
+			}
+			else//연산자일때
+			{
+				if (1 == IsEmpty(&OperStack))
+				{
+					Push(&OperStack, Input[CurIndex]);
+				}
+				else
+				{
+					if (Peep(&OperStack) == '*' || Peep(&OperStack) == '/')
+					{
+						if (Input[CurIndex] == '+' || Input[CurIndex] == '-')
+						{
+							while (IsEmpty(&OperStack))
+							{
+								Postfix[PostfixInx] = Pop(&OperStack);
+								++PostfixInx;
+							}
+							Push(&OperStack, Input[CurIndex]);
+						}
+						else
+						{
+							Push(&OperStack, Input[CurIndex]);
+						}
+					}
+					else
+					{
+						Push(&OperStack, Input[CurIndex]);
+
+					}
+				}
+			}
+
+		
+		}
+
+		while (0 == IsEmpty(&OperStack))
+		{
+			Postfix[PostfixInx] = Pop(&OperStack);
+			++PostfixInx;
+		}
+
+	}
+	cout << Postfix << endl;
 
 }

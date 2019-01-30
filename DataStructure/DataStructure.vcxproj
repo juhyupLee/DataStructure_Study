@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
     <ClInclude Include="ArrayStack.h" />
+    <ClInclude Include="Calculator.h" />
     <ClInclude Include="CLinkedList Apply Stack.h" />
     <ClInclude Include="CLinkedList_Solution.h" />
     <ClInclude Include="DLinkedList.h" />

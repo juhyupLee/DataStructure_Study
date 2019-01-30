@@ -1,6 +1,6 @@
 #pragma once
 
-typedef int Data;
+typedef char Data;
 
 typedef struct _Node
 {
@@ -20,3 +20,5 @@ void StackInit(LinkedStack* pStack);
 void Push(LinkedStack* pStack, Data data);
 Data Pop(LinkedStack* pStack);
 Data Peep(LinkedStack* pStack);
+
+int IsEmpty(LinkedStack * pStack);

@@ -1,4 +1,6 @@
 #include "LinkedStack.h"
+#include <iostream>
+using namespace std;
 
 void StackInit(LinkedStack * pStack)
 {
@@ -34,6 +36,23 @@ Data Pop(LinkedStack * pStack)
 Data Peep(LinkedStack * pStack)
 {
 	if (pStack->StackPointer == nullptr)
+	{
+		cout << "아무것도 없습니다" << endl;
 		return -1;
+	}
+		
+
 	return pStack->StackPointer->data;
+}
+
+int IsEmpty(LinkedStack * pStack)
+{
+	if (pStack->StackPointer == nullptr)
+	{
+		return 1;
+	}
+	else
+	{
+		return  0;
+	}
 }
