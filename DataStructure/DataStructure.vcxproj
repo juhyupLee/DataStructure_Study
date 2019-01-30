@@ -164,6 +164,7 @@
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
+    <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CLinkedList Apply Stack.cpp" />
     <ClCompile Include="CLinkedList_Solutuion.cpp" />
     <ClCompile Include="DoubledLinkedList2.cpp" />
