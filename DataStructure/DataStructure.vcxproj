@@ -152,6 +152,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="ArrayList.h" />
+    <ClInclude Include="ArrayQueue.h" />
     <ClInclude Include="ArrayStack.h" />
     <ClInclude Include="Calculator.h" />
     <ClInclude Include="CLinkedList Apply Stack.h" />
@@ -163,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ArrayList.cpp" />
+    <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="Calculator.cpp" />
     <ClCompile Include="CLinkedList Apply Stack.cpp" />

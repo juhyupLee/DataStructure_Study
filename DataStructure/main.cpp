@@ -11,16 +11,27 @@
 //#include "ArrayStack.h"
 //#include "LinkedStack.h"
 //#include "CLinkedList Apply Stack.h"
-#include "Calculator.h"
-
+//#include "Calculator.h"
+#include "ArrayQueue.h"
 using namespace std;
 #define SIZE 100
 int main()
 {
+	Queue Que;
 
-	char Fomula[] = "(1+2*3)/4";
+	QueueInit(&Que);
 
-	cout << PostFix_To_Result(Fomula) << endl;
+	Enqueue(&Que, 10);
+	Enqueue(&Que, 20);
+	Enqueue(&Que, 30);
+	Enqueue(&Que, 40);
+	Enqueue(&Que, 50);
+	Enqueue(&Que, 60);
+
+	while (!QIsEmpty(&Que))
+	{
+		cout << Dequeue(&Que) << endl;
+	}
 
 
 
