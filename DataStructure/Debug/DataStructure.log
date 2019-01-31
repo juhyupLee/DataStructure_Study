@@ -1,4 +1,2 @@
 ﻿  Calculator.cpp
-c:\side project\data structure\datastructure\calculator.cpp(38): warning C4715: 'Who_Is_Priority': not all control paths return a value
-main.obj : error LNK2019: unresolved external symbol "char * __cdecl Infix_To_PostFix(char *)" (?Infix_To_PostFix@@YAPADPAD@Z) referenced in function _main
-C:\Side Project\Data Structure\Debug\DataStructure.exe : fatal error LNK1120: 1 unresolved externals
+  DataStructure.vcxproj -> C:\Side Project\Data Structure\Debug\DataStructure.exe

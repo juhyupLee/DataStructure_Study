@@ -1,6 +1,6 @@
 #include "Calculator.h"
 #include "LinkedStack.h"
-
+#include <stdlib.h>
 
 
 
@@ -23,8 +23,6 @@ int OP_Priority(char input)
 		return -1;
 	}
 
-
-
 }
 int Who_Is_Priority(char input1, char input2)
 {
@@ -35,6 +33,10 @@ int Who_Is_Priority(char input1, char input2)
 		return 1;
 	else if (Priority_Before < Priority_After)
 		return 0;
+	else
+		return -1;
+
+
 }
 char * Infix_To_PostFix(const char * input)
 {
@@ -44,11 +46,11 @@ char * Infix_To_PostFix(const char * input)
 	LinkedStack OperStack;
 	StackInit(&OperStack);
 
-	char* PostFix = new char[len];
-	//strcpy_s(PostFix,len, input);
+	char* PostFix = new char[len+1] ;
+	//strcpy_s(PostFix,len+1, input);
 	int PostIndex = 0;
 
-	for (int i = 0; i < len; ++i)
+	for (int i = 0; i < len+1; ++i)
 	{
 		if (IsDigit(input[i]))
 		{
@@ -69,7 +71,7 @@ char * Infix_To_PostFix(const char * input)
 					{
 						while (!IsEmpty(&OperStack))
 						{
-							if ('(' == Pop(&OperStack))
+							if ('(' == Peep(&OperStack))
 								break;
 
 							PostFix[PostIndex++] = Pop(&OperStack);
@@ -92,13 +94,71 @@ char * Infix_To_PostFix(const char * input)
 		}
 	}
 
-	return nullptr;
+	while (!IsEmpty(&OperStack))
+	{
+		char Popchr = Pop(&OperStack);
+	
+		PostFix[PostIndex++] = Popchr;
+	}
+	PostFix[PostIndex] = '\0';
+
+	return PostFix;
 }
 
 
 int PostFix_To_Result(char * input)
 {
-	return 0;
+	char* pPostFix = Infix_To_PostFix(input);
+	
+	int len = strlen(pPostFix);
+	LinkedStack DigitStack;
+	StackInit(&DigitStack);
+	int Result = 0;
+	char Node = 0;
+
+	for (int i = 0;i < len;++i)
+	{
+		if (IsDigit(pPostFix[i]))
+		{
+			Push(&DigitStack, pPostFix[i]);
+
+		}
+		else
+		{
+			int Op2 = Pop(&DigitStack)-'0';
+			int Op1 = Pop(&DigitStack)-'0';
+
+			switch (pPostFix[i])
+			{
+				case'+':
+					Result = Op1 + Op2;
+					Node = Result + '0';
+					Push(&DigitStack, Node);
+					break;
+				case'-':
+					Result = Op1 - Op2;
+					Node = Result + '0';
+					Push(&DigitStack, Node);
+					break;
+				case'*':
+					Result = Op1 * Op2;
+					Node = Result + '0';
+					Push(&DigitStack, Node);
+					break;
+				case'/':
+					Result = Op1 / Op2;
+					Node = Result + '0';
+					Push(&DigitStack, Node);
+					break;
+			}
+		}
+	}
+
+	
+	int Ultimate_Result = Pop(&DigitStack) - '0';
+
+
+	return Result;
 }
 
 bool IsDigit(char input)
