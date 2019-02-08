@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string.h>
+#include <stdlib.h>
+#include <time.h>
 //#include "ArrayList.h"
 //#include "DLinkedList.h"
 //#include "CLinkedList.h"
@@ -13,27 +15,69 @@
 //#include "CLinkedList Apply Stack.h"
 //#include "Calculator.h"
 #include "ArrayQueue.h"
+
+#define CUS_COME_TERM 15
+#define CHE_BUR 0
+#define BUL_BUR 1
+#define DUB_BUR 2
+
+#define CHE_TERM 12
+#define BUL_TERM 15
+#define DUB_TERM 24
+
 using namespace std;
-#define SIZE 100
 int main()
 {
+
+	int makeProc = 0;
+	int CheOrder = 0, BulOrder = 0, DubOrder = 0;
+	int Sec;
+
+
 	Queue Que;
 
 	QueueInit(&Que);
+	srand((unsigned int)time(NULL));
 
-	Enqueue(&Que, 10);
-	Enqueue(&Que, 20);
-	Enqueue(&Que, 30);
-	Enqueue(&Que, 40);
-	Enqueue(&Que, 50);
-	Enqueue(&Que, 60);
-
-	while (!QIsEmpty(&Que))
+	for (Sec = 0; Sec < 3600; ++Sec)
 	{
-		cout << Dequeue(&Que) << endl;
+		if (Sec%CUS_COME_TERM == 0)//15초 //고객주문이들어오는시간
+		{
+			switch (rand() % 3)// 버거 셋중에 랜덤으로
+			{
+			case CHE_BUR:
+				Enqueue(&Que, CHE_TERM);
+				CheOrder++;
+				break;
+			case BUL_BUR:
+				Enqueue(&Que, BUL_TERM);
+				BulOrder++;
+				break;
+			case DUB_BUR:
+				Enqueue(&Que, DUB_TERM);
+				DubOrder++;
+				break;
+
+			}
+		}
+
+
+			if (makeProc <= 0 && QIsEmpty(&Que))
+			{
+				makeProc = Dequeue(&Que);
+
+			}
+
+			makeProc--;
+
 	}
+	
 
-
+	cout << "Simulation Report" << endl;
+	cout << "Cheese Burger : " << CheOrder << endl;
+	cout << "Bulgogi Burger : " << BulOrder << endl;
+	cout << "Double Burger : " << DubOrder << endl;
+	cout << "Waiting Room" << QUE_LEN << endl;
 
 
 }
