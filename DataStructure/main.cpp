@@ -19,28 +19,31 @@
 
 
 using namespace std;
+
 int main()
 {
-	BTreeNode* pNodeA = MakeBtreeNode();
-	BTreeNode* pNodeB = MakeBtreeNode();
-	BTreeNode* pNodeC = MakeBtreeNode();
-	BTreeNode* pNodeD = MakeBtreeNode();
+
+	const char string[] = "12+7*";
 
 
-	SetData(pNodeA, 10);
-	SetData(pNodeB, 20);
-	SetData(pNodeC, 30);
-	SetData(pNodeD, 40);
+	//BTreeNode* pNodeA = MakeBtreeNode();
+	//BTreeNode* pNodeB = MakeBtreeNode();
+	//BTreeNode* pNodeC = MakeBtreeNode();
+	//BTreeNode* pNodeD = MakeBtreeNode();
 
-	
-	MakeLeftSubTree(pNodeA, pNodeB);
-	MakeRightSubTree(pNodeA, pNodeC);
-	MakeLeftSubTree(pNodeB, pNodeD);
 
-	cout << GetData(pNodeA) << endl;
-	cout << GetData(GetLeftSubTree(pNodeA));
-	cout << GetData(GetLeftSubTree(GetLeftSubTree(pNodeA)));
+	//SetData(pNodeA, 10);
+	//SetData(pNodeB, 20);
+	//SetData(pNodeC, 30);
+	//SetData(pNodeD, 40);
 
-	
+	//
+	//MakeLeftSubTree(pNodeA, pNodeB);
+	//MakeRightSubTree(pNodeA, pNodeC);
+	//MakeLeftSubTree(pNodeB, pNodeD);
+
+	Travel(MakeExpTree(string));
+
+
 
 }

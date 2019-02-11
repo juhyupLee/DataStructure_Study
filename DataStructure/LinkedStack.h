@@ -1,6 +1,7 @@
 #pragma once
+#include "BinaryTree.h"
 
-typedef char Data;
+typedef BTreeNode* Data;
 
 typedef struct _Node
 {

@@ -15,6 +15,10 @@ BTreeNode* MakeBtreeNode(void);
 BTData GetData(BTreeNode* bt);
 void SetData(BTreeNode* bt, BTData Data);
 BTreeNode* GetLeftSubTree(BTreeNode* bt);
+BTreeNode * GetRightSubTree(BTreeNode * bt);
 BTreeNode* GetLeftSubTree(BTreeNode* bt);
 void MakeLeftSubTree(BTreeNode* main, BTreeNode* sub);
 void MakeRightSubTree(BTreeNode* main, BTreeNode* sub);
+void Travel(BTreeNode* bt);
+BTreeNode* MakeExpTree(const char* pstr);
+

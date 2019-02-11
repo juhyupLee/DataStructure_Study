@@ -38,7 +38,7 @@ Data Peep(LinkedStack * pStack)
 	if (pStack->StackPointer == nullptr)
 	{
 		cout << "아무것도 없습니다" << endl;
-		return -1;
+		//return -1;
 	}
 		
 
