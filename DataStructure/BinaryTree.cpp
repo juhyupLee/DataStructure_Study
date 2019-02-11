@@ -75,7 +75,7 @@ void Travel(BTreeNode * bt)
 }
 bool IsDigit(char ch)
 {
-	if (48 <= ch && ch <= 57)
+	if (48 <= ch && ch <= 57)				//ASCII '0'~'9'
 	{
 		return true;
 	}
@@ -99,7 +99,6 @@ BTreeNode * MakeExpTree(const char * pstr)
 		{
 			//스택에넣어야지
 			SetData(Node, pstr[i] - '0');
-			Push(&stack, Node);
 		}
 		else//연산자일경우
 		{
@@ -108,11 +107,45 @@ BTreeNode * MakeExpTree(const char * pstr)
 			BTreeNode* Num1 = Pop(&stack);
 			MakeLeftSubTree(Node, Num1);
 			MakeRightSubTree(Node, Num2);
-			// 왼쪽오른쪽 연결 해주고
-			Push(&stack, Node);
+			// 왼쪽오른쪽 연결 해주고	
 		}
+		Push(&stack, Node);
 
 	}
 
 	return Pop(&stack);
+
+}
+
+int UltimateCal(BTreeNode* btnode)
+{
+
+	if (nullptr == btnode->left && nullptr == btnode->right)
+	{
+		return GetData(btnode);
+	}
+
+	int Op1 = UltimateCal(GetLeftSubTree(btnode));
+	int Op2 = UltimateCal(GetRightSubTree(btnode));
+
+	switch (btnode->data)
+	{
+
+		case '+':
+			return Op1 + Op2;
+			break;
+
+		case '-':
+			return Op1 + Op2;
+			break;
+
+		case '*':
+			return Op1 * Op2;
+			break;
+
+		case '/':
+			return Op1 / Op2;
+			break;
+	}
+
 }

@@ -22,3 +22,5 @@ void MakeRightSubTree(BTreeNode* main, BTreeNode* sub);
 void Travel(BTreeNode* bt);
 BTreeNode* MakeExpTree(const char* pstr);
 
+int UltimateCal(BTreeNode * btnode);
+

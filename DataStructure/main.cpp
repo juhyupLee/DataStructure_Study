@@ -42,7 +42,7 @@ int main()
 	//MakeRightSubTree(pNodeA, pNodeC);
 	//MakeLeftSubTree(pNodeB, pNodeD);
 
-	Travel(MakeExpTree(string));
+	cout << UltimateCal(MakeExpTree(string)) << endl;
 
 
 
