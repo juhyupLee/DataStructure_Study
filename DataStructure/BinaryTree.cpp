@@ -146,6 +146,11 @@ int UltimateCal(BTreeNode* btnode)
 		case '/':
 			return Op1 / Op2;
 			break;
+
+		default:
+			return 0;
+			break;
+
 	}
 
 }

@@ -16,34 +16,28 @@
 //#include "Calculator.h"
 //#include "ArrayQueue.h"
 #include "BinaryTree.h"
+#include "SimpleHeap.h"
 
 
 using namespace std;
 
 int main()
 {
+	Heap heap;
 
-	const char string[] = "12+7*";
-
-
-	//BTreeNode* pNodeA = MakeBtreeNode();
-	//BTreeNode* pNodeB = MakeBtreeNode();
-	//BTreeNode* pNodeC = MakeBtreeNode();
-	//BTreeNode* pNodeD = MakeBtreeNode();
-
-
-	//SetData(pNodeA, 10);
-	//SetData(pNodeB, 20);
-	//SetData(pNodeC, 30);
-	//SetData(pNodeD, 40);
-
-	//
-	//MakeLeftSubTree(pNodeA, pNodeB);
-	//MakeRightSubTree(pNodeA, pNodeC);
-	//MakeLeftSubTree(pNodeB, pNodeD);
-
-	cout << UltimateCal(MakeExpTree(string)) << endl;
-
-
+	HeapInit(&heap);
+	HInsert(&heap, 1,1);
+	HInsert(&heap, 3, 3);
+	HInsert(&heap, 5, 5);
+	HInsert(&heap, 7, 7);
+	HInsert(&heap, 2, 2);
+	HInsert(&heap, 9, 9);
+	HInsert(&heap, 11, 11);
+	HInsert(&heap, 13, 13);
+	
+	while (!HIsEmpty(&heap))
+	{
+		cout << HDelete(&heap) << endl;
+	}
 
 }
