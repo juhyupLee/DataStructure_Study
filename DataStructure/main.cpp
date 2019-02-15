@@ -15,29 +15,27 @@
 //#include "CLinkedList Apply Stack.h"
 //#include "Calculator.h"
 //#include "ArrayQueue.h"
-#include "BinaryTree.h"
-#include "SimpleHeap.h"
-
-
+//#include "BinaryTree.h"
+//#include "SimpleHeap.h"
+//#include "sort.h"
+#include "UsefulHeap.h"
 using namespace std;
-
+using namespace UsefulHeap;
 int main()
 {
 	Heap heap;
+	HeapInit(&heap,Comp);
 
-	HeapInit(&heap);
-	HInsert(&heap, 1,1);
-	HInsert(&heap, 3, 3);
-	HInsert(&heap, 5, 5);
-	HInsert(&heap, 7, 7);
-	HInsert(&heap, 2, 2);
-	HInsert(&heap, 9, 9);
-	HInsert(&heap, 11, 11);
-	HInsert(&heap, 13, 13);
-	
+	HInsert(&heap, 10);
+	HInsert(&heap, 20);
+	HInsert(&heap, 30);
+	HInsert(&heap, 40);
+	HInsert(&heap, 50);
+	HInsert(&heap, 60);
+
+
 	while (!HIsEmpty(&heap))
 	{
 		cout << HDelete(&heap) << endl;
 	}
-
 }

@@ -26,6 +26,8 @@ int FindLeftNode(int num);
 int FindRightNode(int num);
 void HeapInit(Heap* ph);
 bool HIsEmpty(Heap* ph);
+
 void HInsert(Heap* ph, HData data, Priority pr);
+
 HData HDelete(Heap* ph);
 

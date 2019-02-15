@@ -163,6 +163,7 @@
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="LinkedStack.h" />
     <ClInclude Include="SimpleHeap.h" />
+    <ClInclude Include="sort.h" />
     <ClInclude Include="UsefulHeap.h" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +180,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DLinkedList.cpp" />
     <ClCompile Include="SimpleHeap.cpp" />
+    <ClCompile Include="sort.cpp" />
     <ClCompile Include="UsefulHeap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,5 +1,4 @@
 #include "UsefulHeap.h"
-//#include "SimpleHeap.h"
 
 
 int FindParentIndex(int num)
@@ -19,9 +18,9 @@ int FindRightIndex(int num)
 }
 
 
-int Comp(HData d1, HData d2)
+int UsefulHeap::Comp(HData d1, HData d2)
 {
-	return d1 - d2;
+	return (d2 - d1);
 	// 만약 양수가나오면 d1이 우선순위가 더큰것이고,
 	// 음수가나오면 d2가 우선순위가 더큰것이고
 	// 같으면 0이다
@@ -31,7 +30,6 @@ void UsefulHeap::HeapInit(Heap * ph, int(*Func)(HData d1, HData d2))
 {
 	ph->Comp = Func;
 	ph->numOfData = 0;
-
 
 }
 
@@ -45,52 +43,69 @@ int UsefulHeap::HIsEmpty(Heap * ph)
 
 int UsefulHeap::Suitable_ChildNode(Heap * ph, int parentnode)
 {
-
-	if (ph->numOfData < FindLefIndex(parentnode))
-	{
-
-	}
-
 	HData LeftChildData = ph->HeapArr[FindLefIndex(parentnode)];
-	HData RightChildData = ph->HeapArr[FindLefIndex(parentnode)];
+	HData RightChildData = ph->HeapArr[FindRightIndex(parentnode)];
 
-	if (ph->Comp(LeftChildData, RightChildData) > 0) // LeftChildData가 우선순위가 더크다면
+	if (ph->Comp(LeftChildData, RightChildData) >0) // LeftChildData가 우선순위가 더크다면
 	{
 
-		return LeftChildData;
+		return FindLefIndex(parentnode);
 	}
 	else
 	{
-
-		return RightChildData;
+		return FindRightIndex(parentnode);
 	}
-
 }
 
 void UsefulHeap::HInsert(Heap * ph, HData data)
 {
-	
+	ph->numOfData++;
+
+	int ParentIndex = FindParentIndex(ph->numOfData);
+	int ChildIndex = ph->numOfData;
+	HData InsertValue = data;
+
+	while (ParentIndex >= 1)
+	{
+		if (ph->Comp(InsertValue, ph->HeapArr[ParentIndex]) >0)
+		{
+			ph->HeapArr[ChildIndex] = ph->HeapArr[ParentIndex];
+			ChildIndex = ParentIndex;
+		}
+		else
+		{
+			break;
+		}
+
+		ParentIndex = FindParentIndex(ChildIndex);
+
+	}
+
+	ph->HeapArr[ChildIndex] = InsertValue;
+
 }
 
-HData UsefulHeap::HDelete(Heap * ph)
+UsefulHeap::HData UsefulHeap::HDelete(Heap * ph)
 {
 	HData RtnData = ph->HeapArr[1];
 	
 	int ParentIndex = 1;
+	int ChildIndex = 0;
 	int LastIndex = ph->numOfData;
-	HData LastNode = ph->HeapArr[ph->numOfData]; //마지막노드 담아놓기
-	ph->HeapArr[1] = LastNode; // Root(1) 노드에다가 마지막노드 덮기
-
+	
 
 	while (true)
 	{
-		int ChildIndex = UsefulHeap::Suitable_ChildNode(ph, ParentIndex);
+		ChildIndex = UsefulHeap::Suitable_ChildNode(ph, ParentIndex);
 
-		if (ChildIndex > LastIndex)
+		if (ChildIndex >= LastIndex) // 자식이없는상황.
+		{
 			break;
+		}
+			
 
 		HData ChildData = ph->HeapArr[ChildIndex];
-		HData ParentData = ph->HeapArr[ParentData];
+		HData ParentData = ph->HeapArr[LastIndex];
 
 		if (ph->Comp(ChildData, ParentData) > 0)// ChildData가 우선순위가 더크면
 		{
@@ -103,6 +118,9 @@ HData UsefulHeap::HDelete(Heap * ph)
 			break;
 		}
 	}
+
+	ph->HeapArr[ParentIndex] = ph->HeapArr[ph->numOfData];
+	ph->numOfData--;
 
 
 	return RtnData;

@@ -5,7 +5,7 @@ typedef char HData;
 
 namespace UsefulHeap
 {
-	typedef char HData;
+	typedef int HData;
 
 	typedef struct _Heap
 	{
@@ -21,5 +21,6 @@ namespace UsefulHeap
 	void HInsert(Heap* ph, HData data);
 	HData HDelete(Heap* ph);
 	int Suitable_ChildNode(Heap* ph, int parentnode);
+	int Comp(HData d1, HData d2);
 }
 
