@@ -18,24 +18,22 @@
 //#include "BinaryTree.h"
 //#include "SimpleHeap.h"
 //#include "sort.h"
-#include "UsefulHeap.h"
+//#include "UsefulHeap.h"
+#include "MergeSort.h"
 using namespace std;
-using namespace UsefulHeap;
+
+//using namespace UsefulHeap;
 int main()
 {
-	Heap heap;
-	HeapInit(&heap,Comp);
+	int Arr[8] = { 2,1,4,3,6,5,7,8 };
 
-	HInsert(&heap, 10);
-	HInsert(&heap, 20);
-	HInsert(&heap, 30);
-	HInsert(&heap, 40);
-	HInsert(&heap, 50);
-	HInsert(&heap, 60);
-
-
-	while (!HIsEmpty(&heap))
+	Divide(Arr, 0, 7);
+	
+	for (int i = 0;i < 8;++i)
 	{
-		cout << HDelete(&heap) << endl;
+		cout << Arr[i] << " ";
 	}
+	cout << endl;
+
+
 }
