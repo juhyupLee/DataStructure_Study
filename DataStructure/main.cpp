@@ -19,21 +19,23 @@
 //#include "SimpleHeap.h"
 //#include "sort.h"
 //#include "UsefulHeap.h"
-#include "MergeSort.h"
+//#include "MergeSort.h"
+#include "QuickSort.h"
 using namespace std;
 
 //using namespace UsefulHeap;
 int main()
 {
-	int Arr[8] = { 2,1,4,3,6,5,7,8 };
-
-	Divide(Arr, 0, 7);
+	//int Arr[8] = { 2,1,4,3,6,5,7,8 };
+	int Arr[15] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 	
-	for (int i = 0;i < 8;++i)
+	int n = sizeof(Arr) / sizeof(int);
+
+	QuickSort(Arr, 0, n-1);
+
+	/*for (int i = 0;i < 8;++i)
 	{
 		cout << Arr[i] << " ";
 	}
-	cout << endl;
-
-
+	cout << endl;*/
 }

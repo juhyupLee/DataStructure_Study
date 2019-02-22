@@ -163,6 +163,7 @@
     <ClInclude Include="DoubleLinkedList.h" />
     <ClInclude Include="LinkedStack.h" />
     <ClInclude Include="MergeSort.h" />
+    <ClInclude Include="QuickSort.h" />
     <ClInclude Include="SimpleHeap.h" />
     <ClInclude Include="sort.h" />
     <ClInclude Include="UsefulHeap.h" />
@@ -181,6 +182,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="DLinkedList.cpp" />
     <ClCompile Include="MergeSort.cpp" />
+    <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="SimpleHeap.cpp" />
     <ClCompile Include="sort.cpp" />
     <ClCompile Include="UsefulHeap.cpp" />
