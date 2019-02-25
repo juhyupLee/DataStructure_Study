@@ -20,22 +20,24 @@
 //#include "sort.h"
 //#include "UsefulHeap.h"
 //#include "MergeSort.h"
-#include "QuickSort.h"
+//#include "QuickSort.h"
+#include "BinarySeachTree.h"
+
 using namespace std;
 
 //using namespace UsefulHeap;
 int main()
 {
-	//int Arr[8] = { 2,1,4,3,6,5,7,8 };
-	int Arr[15] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
-	
-	int n = sizeof(Arr) / sizeof(int);
+	BTreeNode* pRootNode = MakeBtreeNode();
+	BSTMakeAndInit(&pRootNode);
 
-	QuickSort(Arr, 0, n-1);
+	BSTInsert(&pRootNode, 10);
+	BSTInsert(&pRootNode, 20);
+	BSTInsert(&pRootNode, 30);
+	BSTInsert(&pRootNode, 40);
 
-	/*for (int i = 0;i < 8;++i)
-	{
-		cout << Arr[i] << " ";
-	}
-	cout << endl;*/
+
+	cout << BSTSearch(pRootNode, 20)->data << endl;
+
+
 }

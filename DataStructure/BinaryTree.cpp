@@ -94,7 +94,6 @@ BTreeNode * MakeExpTree(const char * pstr)
 	{
 		BTreeNode* Node = MakeBtreeNode();//일단 노드를 만들고. 노드의 데이터는.......int? char?
 		
-
 		if (IsDigit(pstr[i])) // 숫자일경우
 		{
 			//스택에넣어야지
