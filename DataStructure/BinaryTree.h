@@ -24,3 +24,8 @@ BTreeNode* MakeExpTree(const char* pstr);
 
 int UltimateCal(BTreeNode * btnode);
 
+
+BTreeNode* RemovdeLeftSubTreE(BTreeNode* bt);
+BTreeNode* RemovdeRightSubTree(BTreeNode* bt);
+void ChangeLeftSubTree(BTreeNode* main, BTreeNode* sub);
+void ChangeRightSubTree(BTreeNode* main, BTreeNode* sub);

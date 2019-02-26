@@ -153,3 +153,40 @@ int UltimateCal(BTreeNode* btnode)
 	}
 
 }
+
+BTreeNode * RemovdeLeftSubTreE(BTreeNode * bt)
+{
+	if (nullptr == bt->left)
+		return nullptr;
+	else
+	{
+		BTreeNode* DelNode = bt->left;
+		bt->left = nullptr;
+		return DelNode;
+	}
+}
+
+BTreeNode * RemovdeRightSubTree(BTreeNode * bt)
+{
+	if (nullptr == bt->right)
+		return nullptr;
+	else
+	{
+		BTreeNode* DelNode = bt->right;
+		bt->left = nullptr;
+		return DelNode;
+	}
+}
+
+void ChangeLeftSubTree(BTreeNode * main, BTreeNode * sub)
+{
+	main->left = sub;
+}
+
+void ChangeRightSubTree(BTreeNode * main, BTreeNode * sub)
+{
+	main->right = sub;
+}
+
+
+
