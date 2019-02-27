@@ -88,8 +88,11 @@ BTreeNode * BSTSearch(BTreeNode * bst, BSTData target)
 
 BTreeNode * BSTRemove(BTreeNode ** pRoot, BSTData target)
 {
+	BTreeNode* VirtualRoot = MakeBtreeNode();
+	MakeRightSubTree(VirtualRoot, *pRoot);// Virtual root의 오른쪽 자식으로 진짜 루트노드를 드림
+
 	BTreeNode* CurNode = *pRoot;
-	BTreeNode* PNode = CurNode;
+	BTreeNode* PNode = VirtualRoot;
 	bool IsRight = true;
 
 	while (CurNode != nullptr)
@@ -112,7 +115,6 @@ BTreeNode * BSTRemove(BTreeNode ** pRoot, BSTData target)
 			PNode = CurNode;
 			CurNode = CurNode->right;
 		}
-
 	}
 
 	if (CurNode == nullptr)
@@ -133,12 +135,11 @@ BTreeNode * BSTRemove(BTreeNode ** pRoot, BSTData target)
 			return RemovdeLeftSubTreE(PNode);
 		}
 	}
-	else if ((CurNode->left != nullptr && CurNode->right == nullptr) ||
-			 (CurNode->left == nullptr && CurNode->right != nullptr))//단일노드가 한개인경우 
+	else if (CurNode->left == nullptr || CurNode->right == nullptr)//단일노드가 한개인경우
 	{
 		if (CurNode->left == nullptr)
 		{
-			ChangeLeftSubTree(PNode, CurNode->right);
+			ChangeRightSubTree(PNode, CurNode->right);
 		}
 		else
 		{
@@ -147,15 +148,19 @@ BTreeNode * BSTRemove(BTreeNode ** pRoot, BSTData target)
 	}
 	else //자식노드가 2개이상인경우
 	{
-		//그 타겟노드에서 오른쪽에서 젤작은놈
+		//대체노드
 		BTreeNode* ReplaceNode = CurNode->right;
+		//대체노드 부모
+
 		BTreeNode* ReplaceParent = CurNode->right;
 		while (GetLeftSubTree(ReplaceNode) !=nullptr)
 		{
 			ReplaceParent = ReplaceNode;
 			ReplaceNode = ReplaceNode->left;
 		}
+		// 삭제할 노드에 대체노드 데이터 집어넣기
 		SetData(CurNode, ReplaceParent->data);
+
 		if (GetLeftSubTree(ReplaceParent) == ReplaceNode)
 		{
 			ChangeLeftSubTree(ReplaceParent, GetRightSubTree(ReplaceNode));
@@ -164,8 +169,11 @@ BTreeNode * BSTRemove(BTreeNode ** pRoot, BSTData target)
 		{
 			ChangeRightSubTree(ReplaceParent, GetRightSubTree(ReplaceNode));
 		}
+	}
 
-
+	if (VirtualRoot->right != (*pRoot)) // Virtual Root의 오른쪽 자식이 루트노드가아니라면
+	{
+		*pRoot = VirtualRoot->right;
 	}
 
 	//Target에맞는  노드가없는경우

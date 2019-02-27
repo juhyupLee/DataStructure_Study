@@ -37,7 +37,7 @@ int main()
 	BSTInsert(&pRootNode, 40);
 
 
-	cout << BSTRemove(&pRootNode,20)->data<< endl;
+	cout << BSTRemove(&pRootNode,10)->data<< endl;
 
 
 }
