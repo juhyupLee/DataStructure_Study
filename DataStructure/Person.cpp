@@ -15,7 +15,7 @@ void ShowPerInfo(Person * p)
 	cout << "аж╪р:" << p->addr << endl;
 }
 
-Person * MakePersonData(int ssn, char * name, char * addr)
+Person * MakePersonData(int ssn, const char * name, const char * addr)
 {
 	Person* newP = new Person;
 	newP->ssn = ssn;

@@ -10,7 +10,7 @@ typedef struct _person
 
 int GetSSN(Person* p);
 void ShowPerInfo(Person* p);
-Person * MakePersonData(int ssn, char* name, char* addr);
+Person * MakePersonData(int ssn, const char* name, const char* addr);
 
 
 

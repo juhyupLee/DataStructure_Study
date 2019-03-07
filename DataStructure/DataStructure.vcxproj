@@ -162,14 +162,13 @@
     <ClInclude Include="DLinkedList.h" />
     <ClInclude Include="DoubledLinkedList2.h" />
     <ClInclude Include="DoubleLinkedList.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="LinkedStack.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="Person.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="SimpleHeap.h" />
-    <ClInclude Include="Slot.h" />
-    <ClInclude Include="sort.h" />
-    <ClInclude Include="Table.h" />
+    <ClInclude Include="SingleLinkedList.h" />
     <ClInclude Include="UsefulHeap.h" />
   </ItemGroup>
   <ItemGroup>
@@ -190,8 +189,6 @@
     <ClCompile Include="Person.cpp" />
     <ClCompile Include="QuickSort.cpp" />
     <ClCompile Include="SimpleHeap.cpp" />
-    <ClCompile Include="sort.cpp" />
-    <ClCompile Include="Table.cpp" />
     <ClCompile Include="UsefulHeap.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

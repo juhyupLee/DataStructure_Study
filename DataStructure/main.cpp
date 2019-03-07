@@ -23,47 +23,56 @@
 //#include "MergeSort.h"
 //#include "QuickSort.h"
 //#include "BinarySeachTree.h"
-#include ""
+
+#include "HashTable.h"
 using namespace std;
 
 //using namespace UsefulHeap;
+#include <map>
 
 
-
-typedef struct _empInfo
+int MyHashFunc(int k)
 {
-	int empNum;
-	int age;
-}EmpInfo;
+	return k % 100;
 
-int GetHashValue(int empNum)
-{
-	return empNum % 100;
 }
+
+//class MyTest
+//{
+//public:
+//	MyTest(int a)
+//	{
+//		m_pointer = &a;
+//
+//	}
+//	int Get()
+//	{
+//		return *m_pointer;
+//	}
+//private:
+//	int* m_pointer;
+//
+//};
+//void TestFunc(int a)
+//{
+//	MyTest hi(a);
+//
+//}
 
 int main()
 {
-	EmpInfo empInfoArr[1000];
 
-	EmpInfo emp1 = { 20120003, 42 };
-	EmpInfo emp2 = { 20130012, 33 };
-	EmpInfo emp3 = { 20170049, 27 };
-	
-	EmpInfo r1, r2, r3;
+	UserData Ju("LeeJu", 920520);
+	UserData Yu("LeeYu", 921218);
 
-	empInfoArr[GetHashValue(emp1.empNum)] = emp1;
-	empInfoArr[GetHashValue(emp2.empNum)] = emp2;
-	empInfoArr[GetHashValue(emp3.empNum)] = emp3;
+	HashTable hi(MyHashFunc);
 
-	r1 = empInfoArr[GetHashValue(20120003)];
-	r2 = empInfoArr[GetHashValue(20130012)];
-	r3 = empInfoArr[GetHashValue(20170049)];
+	hi.insert(Ju.GetRegister(), Ju);
+	hi.insert(Yu.GetRegister(), Yu);
 
+	UserData* Search = hi.search(920520);
 
-	printf("사번 %d,나이 %d\n", r1.empNum, r1.age);
-	printf("사번 %d,나이 %d\n", r2.empNum, r2.age);
-	printf("사번 %d,나이 %d\n", r3.empNum, r3.age);
-	return 0;
+	cout << Search->GetRegister() << endl;
 
 
 }
