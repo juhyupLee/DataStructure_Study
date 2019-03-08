@@ -100,7 +100,7 @@ public:
 		delete m_End;
 	}
 
-	void Push_Front(const T Data)
+	void Push_Front(const T& Data)
 	{
 		PNODE NewNode = new NODE;
 		NewNode->m_Data = Data;

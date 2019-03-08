@@ -10,6 +10,14 @@ public:
 		strcpy_s(m_Name, pName);
 		m_RegisterNum = regist;
 	}
+	UserData()
+	{
+
+	}
+	UserData(const UserData& rhs)
+	{
+
+	}
 
 	int GetRegister() const 
 	{
@@ -39,8 +47,10 @@ public:
 	{
 
 	}
+
 	~Slot()
 	{
+	
 
 	}
 
@@ -53,7 +63,7 @@ public:
 		return m_pVal;
 	}
 
-public:
+private:
 	
 	Key m_Key;
 	Value* m_pVal;
@@ -82,8 +92,6 @@ public:
 		int HashValue = m_Func(key);
 
 		Slot InsertSlot(key, value);
-
-		Value* pTemp = InsertSlot.m_pVal;
 
 		m_Pair[HashValue].Push_Front(InsertSlot);
 	}

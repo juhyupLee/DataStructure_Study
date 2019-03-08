@@ -37,30 +37,9 @@ int MyHashFunc(int k)
 
 }
 
-//class MyTest
-//{
-//public:
-//	MyTest(int a)
-//	{
-//		m_pointer = &a;
-//
-//	}
-//	int Get()
-//	{
-//		return *m_pointer;
-//	}
-//private:
-//	int* m_pointer;
-//
-//};
-//void TestFunc(int a)
-//{
-//	MyTest hi(a);
-//
-//}
-
 int main()
 {
+	
 
 	UserData Ju("LeeJu", 920520);
 	UserData Yu("LeeYu", 921218);
@@ -73,6 +52,5 @@ int main()
 	UserData* Search = hi.search(920520);
 
 	cout << Search->GetRegister() << endl;
-
 
 }
