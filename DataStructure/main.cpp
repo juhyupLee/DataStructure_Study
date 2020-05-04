@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
+#include <vector>
 //#include "ArrayList.h"
 //#include "DLinkedList.h"
 //#include "CLinkedList.h"
@@ -23,7 +24,7 @@
 //#include "MergeSort.h"
 //#include "QuickSort.h"
 //#include "BinarySeachTree.h"
-
+#include "Graph.h"
 #include "HashTable.h"
 using namespace std;
 
@@ -39,18 +40,20 @@ int MyHashFunc(int k)
 
 int main()
 {
-	
+	std::vector<const char*> vTemp;
+	vTemp.push_back("A");
+	vTemp.push_back("B");
+	vTemp.push_back("C");
+	vTemp.push_back("D");
+	vTemp.push_back("E");
+	Graph graph(vTemp);
 
-	UserData Ju("LeeJu", 920520);
-	UserData Yu("LeeYu", 921218);
+	graph.AddEdge("A", "B");
+	graph.AddEdge("A", "C");
+	graph.AddEdge("A", "D");
+	graph.AddEdge("A", "E");
+	graph.AddEdge("B", "A");
 
-	HashTable hi(MyHashFunc);
-
-	hi.insert(Ju.GetRegister(), Ju);
-	hi.insert(Yu.GetRegister(), Yu);
-
-	UserData* Search = hi.search(920520);
-
-	cout << Search->GetRegister() << endl;
+	graph.ShowGraphEdgeInfo();
 
 }
