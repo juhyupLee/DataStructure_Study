@@ -7,11 +7,13 @@ Graph::Graph(std::vector<const char*> &v)
 	{
 		mArray.insert(std::make_pair(v[i], std::list<std::string>()));
 	}
+	mVisitInfo.reserve(v.size());
 
 }
 
 void Graph::GraphDestroy()
 {
+	
 }
 
 void Graph::AddEdge(std::string from, std::string to)
@@ -23,6 +25,7 @@ void Graph::AddEdge(std::string from, std::string to)
 	}
 
 	iter->second.push_back(to);
+	iter->second.sort(std::less<std::string>());
 }
 
 void Graph::ShowGraphEdgeInfo()
@@ -41,6 +44,17 @@ void Graph::ShowGraphEdgeInfo()
 	}
 }
 
-void Graph::GetEdge()
+int Graph::GetEdge()
 {
+	return mNumE;
+}
+
+void Graph::DFShowGraphVertex(const char* start)
+{
+
+}
+
+bool Graph::SortCallback(const std::string& lhs, const std::string& rhs)
+{
+	return lhs > rhs;
 }
