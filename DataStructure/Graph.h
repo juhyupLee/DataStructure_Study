@@ -6,13 +6,15 @@
 #include <Windows.h>
 #include <list>
 #include <vector>
+#include <stack>
 using namespace std;
 class Graph 
 {
 private:
 	int mNumE; // 간선의 수
 	std::map<std::string,std::list<std::string>> mArray;
-	std::vector<const char*> mVisitInfo;
+	std::vector<std::string> mVisitInfo;
+
 
 public:
 	Graph(std::vector<const char*>& v);

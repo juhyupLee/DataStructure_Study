@@ -1,6 +1,6 @@
 #include "Graph.h"
 
-Graph::Graph(std::vector<const char*> &v)
+Graph::Graph(std::vector<const char*>& v)
 	:mNumE(v.size())
 {
 	for (unsigned int i = 0; i < v.size(); ++i)
@@ -13,7 +13,7 @@ Graph::Graph(std::vector<const char*> &v)
 
 void Graph::GraphDestroy()
 {
-	
+
 }
 
 void Graph::AddEdge(std::string from, std::string to)
@@ -36,7 +36,7 @@ void Graph::ShowGraphEdgeInfo()
 	{
 		cout << iter->first;
 		auto iterList = iter->second.begin();
-		for (;iterList!=iter->second.end();++iterList)
+		for (; iterList != iter->second.end(); ++iterList)
 		{
 			cout << *iterList;
 		}
@@ -51,8 +51,24 @@ int Graph::GetEdge()
 
 void Graph::DFShowGraphVertex(const char* start)
 {
-
+	std::stack<const char*> stack;
+	auto iter = mArray.find(start);
+	bool bSearched = false;
+	for (unsigned int i = 0; i < mVisitInfo.size(); ++i)
+	{
+		if (mVisitInfo[i] == start)
+		{
+			bSearched = true;
+			break;
+		}
+	}
+	if (!bSearched)
+	{
+		auto node = iter->second.begin();
+		mVisitInfo.push_back(*node);
+	}
 }
+
 
 bool Graph::SortCallback(const std::string& lhs, const std::string& rhs)
 {
