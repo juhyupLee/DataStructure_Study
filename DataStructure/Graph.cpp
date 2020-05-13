@@ -49,26 +49,72 @@ int Graph::GetEdge()
 	return mNumE;
 }
 
-void Graph::DFShowGraphVertex(const char* start)
+void Graph::DFShowGraphVertex(std::string start)
 {
-	std::stack<const char*> stack;
 	auto iter = mArray.find(start);
-	bool bSearched = false;
-	for (unsigned int i = 0; i < mVisitInfo.size(); ++i)
+
+	if (iter == mArray.end())
 	{
-		if (mVisitInfo[i] == start)
+		return;
+	}
+	mVisitInfo.clear();
+	mVisitInfo.push_back(start);
+	std::stack<std::string> stack;
+	if (!SearchOver(stack, start))
+	{
+		return;
+	}
+
+	std::string lastNode = mVisitInfo[mVisitInfo.size() - 1];
+	while (!stack.empty())
+	{
+		
+		if (SearchOver(stack,lastNode))
 		{
-			bSearched = true;
-			break;
+			lastNode = mVisitInfo[mVisitInfo.size() - 1];
+		}
+		else
+		{
+			lastNode = stack.top();
+			stack.pop();
 		}
 	}
-	if (!bSearched)
-	{
-		auto node = iter->second.begin();
-		mVisitInfo.push_back(*node);
-	}
-}
 
+	for (size_t i = 0; i < mVisitInfo.size(); ++i)
+	{
+		cout << mVisitInfo[i] << " ";
+	}
+	cout << endl;
+
+}
+bool Graph::SearchOver(std::stack<std::string> & stack,std::string node)
+{
+	auto iter = mArray.find(node);
+
+	auto list = iter->second.begin();
+	bool bVisited ;
+
+	for (; list != iter->second.end(); ++list)
+	{
+		bVisited = false;
+		for (size_t i = 0; i < mVisitInfo.size(); ++i)
+		{
+			if (mVisitInfo[i] == *list)
+			{
+				bVisited = true;
+				break;
+			}
+		}
+		if (!bVisited)
+		{
+			mVisitInfo.push_back(*list);
+			stack.push(node);
+			return true;
+		}
+
+	}
+	return false;
+}
 
 bool Graph::SortCallback(const std::string& lhs, const std::string& rhs)
 {

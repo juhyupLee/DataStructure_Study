@@ -22,7 +22,10 @@ public:
 	void AddEdge(std::string from, std::string to);
 	void ShowGraphEdgeInfo();
 	int GetEdge();
-	void DFShowGraphVertex(const char* start);
+	void DFShowGraphVertex(std::string start);
 	bool SortCallback(const std::string& lhs, const std::string& rhs);
+	bool SearchOver(std::stack<std::string>& stack, std::string node);
+
 
 };
+
