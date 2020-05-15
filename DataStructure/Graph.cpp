@@ -18,14 +18,23 @@ void Graph::GraphDestroy()
 
 void Graph::AddEdge(std::string from, std::string to)
 {
-	auto iter = mArray.find(from);
-	if (iter == mArray.end())
+	auto iter_From = mArray.find(from);
+	auto iter_To = mArray.find(to);
+
+	if (iter_From == mArray.end())
+	{
+		return;
+	}
+	if (iter_To == mArray.end())
 	{
 		return;
 	}
 
-	iter->second.push_back(to);
-	iter->second.sort(std::less<std::string>());
+	iter_From->second.push_back(to);
+	iter_From->second.sort(std::less<std::string>());
+
+	iter_To->second.push_back(from);
+	iter_To->second.sort(std::less<std::string>());
 }
 
 void Graph::ShowGraphEdgeInfo()
@@ -87,6 +96,65 @@ void Graph::DFShowGraphVertex(std::string start)
 	cout << endl;
 
 }
+
+
+void Graph::BFSub(std::queue<std::string>& queue,std::string str)
+{
+	auto map = mArray.find(str);
+	auto list = map->second.begin();
+	std::queue<std::string> tempQueue = queue;
+	std::vector<std::string> tempVector;
+
+	while (!tempQueue.empty())
+	{
+		tempVector.push_back(tempQueue.front());
+		tempQueue.pop();
+	}
+
+	bool bVisit = false;
+	for (; list != map->second.end(); ++list)
+	{
+		bVisit = false;
+		for (int i = 0; i<mVisitInfo.size(); ++i)
+		{
+			if (*list == mVisitInfo[i])
+			{
+				bVisit = true;
+				break;
+			}
+		}
+		if (!bVisit)
+		{
+			
+			queue.push(*list);
+		}
+	}
+}
+void Graph::BFShowGraphVertex(std::string start)
+{
+	auto iter = mArray.find(start);
+	if (iter == mArray.end())
+	{
+		return;
+	}
+	mVisitInfo.clear();
+	std::queue<std::string> queue;
+	// 처음에 start 넣고 봄.
+	queue.push(start);
+	while (!queue.empty())
+	{
+		std::string  dequeStr = queue.front();
+		queue.pop();
+		mVisitInfo.push_back(dequeStr);
+		BFSub(queue, dequeStr);
+	}
+	for (size_t i = 0; i < mVisitInfo.size(); ++i)
+	{
+		cout << mVisitInfo[i] << " ";
+	}
+	cout << endl;
+}
+
 bool Graph::SearchOver(std::stack<std::string> & stack,std::string node)
 {
 	auto iter = mArray.find(node);

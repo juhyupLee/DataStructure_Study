@@ -47,30 +47,24 @@ int main()
 	vTemp.push_back("지민");
 	vTemp.push_back("수정");
 	vTemp.push_back("정희");
+	vTemp.push_back("명석");
 	Graph graph(vTemp);
 
 	graph.AddEdge("동수", "지율");
 	graph.AddEdge("동수", "지민");
 	graph.AddEdge("지율", "민석");
-	graph.AddEdge("지율", "동수");
 	graph.AddEdge("지민", "민석");
-	graph.AddEdge("지민", "동수");
 	graph.AddEdge("민석", "수정");
 	graph.AddEdge("민석", "정희");
-	graph.AddEdge("민석", "지율");
-	graph.AddEdge("민석", "지민");
 	graph.AddEdge("정희", "수정");
-	graph.AddEdge("정희", "민석");
-	graph.AddEdge("수정", "민석");
-	graph.AddEdge("수정", "정희");
+	graph.AddEdge("정희", "명석");
 
-
-	
 
 	graph.ShowGraphEdgeInfo();
 	graph.DFShowGraphVertex("동수");
 	graph.DFShowGraphVertex("수정");
 
+	graph.BFShowGraphVertex("지율");
 
 	return 0;
 

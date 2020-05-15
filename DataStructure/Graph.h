@@ -7,6 +7,7 @@
 #include <list>
 #include <vector>
 #include <stack>
+#include <queue>
 using namespace std;
 class Graph 
 {
@@ -23,6 +24,8 @@ public:
 	void ShowGraphEdgeInfo();
 	int GetEdge();
 	void DFShowGraphVertex(std::string start);
+	void BFSub(std::queue<std::string>& queue, std::string str);
+	void BFShowGraphVertex(std::string start);
 	bool SortCallback(const std::string& lhs, const std::string& rhs);
 	bool SearchOver(std::stack<std::string>& stack, std::string node);
 
